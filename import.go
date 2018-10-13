@@ -58,7 +58,8 @@ func getVisitsAndCaptures() []byte {
 
 	visitedPortals := make([]json.RawMessage, 0)
 	visitedPortals = processData(fileContents, visitedPortals, func(line []string) bool {
-		return ((strings.HasPrefix(line[3], "hacked") && strings.HasSuffix(line[3], "portal")) || strings.HasSuffix(line[3], "deployed")) && line[4] != "failed"
+		return (strings.HasPrefix(line[3], "hacked") && strings.HasSuffix(line[3], "portal")) ||
+			((strings.HasSuffix(line[3], "deployed") || strings.HasSuffix(line[3], "upgraded")) && line[4] != "failed")
 	})
 
 	result := struct {

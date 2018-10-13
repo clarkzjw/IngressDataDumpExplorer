@@ -150,8 +150,8 @@ function setUniforms(map, color) {
 }
 
 // INIT
-leafletMap = L.map('map').setView([51.0, 10.2], 7);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{param}', { param: '' }).addTo(leafletMap);
+leafletMap = L.map('map', ).setView([31.0, 120.2], 5);
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png?{param}', { param: '' }).addTo(leafletMap);
 
 // Load data
 fetchJSON("/data.json", (result, error) => {
